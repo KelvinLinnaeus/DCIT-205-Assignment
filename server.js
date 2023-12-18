@@ -44,7 +44,9 @@ const Vitals = mongoose.model('Vitals', vitalsSchema);
 const Encounter = mongoose.model('Visitation', visitationSchema);
 const Patient = mongoose.model('Patient', patientSchema);
 
-
+app.get('/', (req, res) => {
+  res.send("Welcome")
+})
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
@@ -97,3 +99,8 @@ app.get('/patient/:id', async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 });
+
+
+app.listen(PORT, () => {
+  console.log(`Started on ${PORT}`)
+})
