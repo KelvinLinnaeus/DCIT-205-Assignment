@@ -70,7 +70,6 @@ app.post('/startVisitation', async (req, res) => {
 });
 
 
-
 app.post('/submitVitals', async (req, res) => {
   try {
     const newVitals = await Vitals.create(req.body);
@@ -80,21 +79,10 @@ app.post('/submitVitals', async (req, res) => {
   }
 });
 
-
 app.get('/patients', async (req, res) => {
   try {
     const patients = await Patient.find();
     res.status(200).json(patients);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-});
-
-
-app.get('/patient/:id', async (req, res) => {
-  try {
-    const patient = await Patient.findById(req.params.id);
-    res.status(200).json(patient);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
