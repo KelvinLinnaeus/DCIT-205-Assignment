@@ -60,3 +60,11 @@ app.post('/registerPatient', async (req, res) => {
 });
 
 
+app.post('/startVisitation', async (req, res) => {
+  try {
+    const newEncounter = await Encounter.create(req.body);
+    res.status(201).json(newEncounter);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
