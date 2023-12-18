@@ -48,9 +48,7 @@ app.get('/', (req, res) => {
   res.send("Welcome")
 })
 
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+
 
 app.post('/registerPatient', async (req, res) => {
   try {
@@ -104,3 +102,7 @@ app.get('/patient/:id', async (req, res) => {
 app.listen(PORT, () => {
   console.log(`Started on ${PORT}`)
 })
+
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
