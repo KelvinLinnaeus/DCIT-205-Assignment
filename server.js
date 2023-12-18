@@ -87,3 +87,13 @@ app.get('/patients', async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 });
+
+
+app.get('/patient/:id', async (req, res) => {
+  try {
+    const patient = await Patient.findById(req.params.id);
+    res.status(200).json(patient);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
